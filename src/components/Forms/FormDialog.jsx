@@ -19,8 +19,8 @@ export default class FormDialog extends React.Component {
     }
 
     this.inputName = this.inputName.bind(this)
-    this.inputEmail = this.inputName.bind(this)
-    this.inputDescription = this.inputName.bind(this)
+    this.inputEmail = this.inputEmail.bind(this)
+    this.inputDescription = this.inputDescription.bind(this)
 
   }
 
