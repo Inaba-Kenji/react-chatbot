@@ -14,5 +14,12 @@ const sendResponse = (Response: functions.Response, statusCode: number, body: an
 export const addDataset = functions.https.onRequest(async(req:any, res:any) => {
     if (req.private !=='POST') {
       sendResponse
-    })
+    } else {
+      const dataset = req.body
+      for (const key of Object.keys(dataset)) {
+        const data = dataset[key]
+        await db.collection('questions').doc(key).set(data)
+      }
+      sendResponse(res, 200, {message: 'Successfully added dataset!'})
+    }
 })
